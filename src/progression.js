@@ -49,7 +49,8 @@ while (Exercices<1 || Exercices>20) {
 
  }
  
-return true 
+ return [jour, Exercices];
+ 
 
  }
 
@@ -88,7 +89,46 @@ return true
     
  }
  
+function findById(id) {
+      id = Number(prompt("Enter Id  : "))
+    for (let i = 0; i < apprenants.length; i++) {
+        if (apprenants[i].id==id) 
+            return [true,i]
+            
+        
+        
+    }
+                return [false,null]
+
+}
+
+function enregistrerResultat(id){
+    let isvalid , indexid
+     
+    [isvalid,indexid]=findById()
+    if (isvalid) {
+       
+        let day, exercices
+    [day, exercices] = validerResultat();
+    let challenge =Boolean( prompt(" do You do challenge true/false  : "))
+    const result={
+         jour: day, exercicesTermines: exercices,
+          totalExercices: 20, challengeTermine: challenge
+
+    }
+    apprenants[indexid].resultats.push(result)
+    
+
+
+        
+    }else
+        console.log( " Id Is not valider");
+        
+return indexid
+     
+
+}
  
- ajouterApprenant()
- console.log(apprenants);
+ 
+
  
