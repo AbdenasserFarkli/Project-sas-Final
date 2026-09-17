@@ -1,6 +1,9 @@
+import {apprenants} from './data.js'
 
- const prompt = require("prompt-sync")();
 
+import promptSync from "prompt-sync";
+
+const prompt = promptSync();
 function normaliserNom(nomComplet) {
     
     let isspace= false
@@ -50,8 +53,26 @@ return true
 
  }
 
+ function checkid(id) {
+     id =Number(prompt(" Add Id  : "))
+     let count =0
+    let lengthArr= apprenants.length
+    for (let i = 0; i < apprenants.length; i++) {
+        if (apprenants[i].id===id) {
+            console.log("this Id is Used");
+            
+             id =checkid(id)
+            
+        }
+        
+    }
+    return id 
+
+    
+ }
+
  function ajouterApprenant(IdUser,FullName,City) {
-     IdUser =Number(prompt(" Add Id  : "))
+     IdUser =Number(checkid())
      FullName= normaliserNom(  prompt(" Enter Your Name  : ")) 
      City =  normaliserNom(  prompt(" Enter Name You City  : "))
    const info =  {
@@ -68,4 +89,6 @@ return true
  }
  
  
+ ajouterApprenant()
+ console.log(apprenants);
  
