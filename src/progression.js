@@ -1,4 +1,3 @@
-let nom = "abDnsser       farKli...@    "
 
 
 function normaliserNom(nomComplet) {
@@ -49,7 +48,4 @@ while (Exercices<1 || Exercices>20) {
 return true 
 
  }
- let day =0
- let Exercices = 0
-console.log(validerResultat(day , Exercices));
-
+ 
