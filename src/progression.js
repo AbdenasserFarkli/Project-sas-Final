@@ -30,4 +30,26 @@ function normaliserNom(nomComplet) {
 }
 
 
+ function validerResultat(jour, Exercices){
+ const prompt = require("prompt-sync")();
+ 
+ jour=  Number(prompt("Enter Day you Want to add : "));
+ while (jour<1 || jour>7) {
+    console.log("Day Invalid Try again day Includ  from 1 to 7")
+    jour=  Number(prompt("Enter Day you Want to add : "));
+
+ }
+  Exercices =Number(prompt("Enter Number Exercices You Finshed : "));
+while (Exercices<1 || Exercices>20) {
+    console.log("Exercices Invalid Try again Exercices  Includ  from 1 to 20");
+    Exercices=  Number(prompt("Enter Exercices you Want to add : "));
+
+ }
+ 
+return true 
+
+ }
+ let day =0
+ let Exercices = 0
+console.log(validerResultat(day , Exercices));
 
