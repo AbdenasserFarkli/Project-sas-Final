@@ -32,8 +32,6 @@ function normaliserNom(nomComplet) {
     return nomComplet
     
 }
-
-
  function validerResultat(jour, Exercices){
  
  jour=  Number(prompt("Enter Day you Want to add : "));
@@ -53,7 +51,6 @@ while (Exercices<1 || Exercices>20) {
  
 
  }
-
  function checkid(id) {
      id =Number(prompt(" Add Id  : "))
      let count =0
@@ -71,7 +68,6 @@ while (Exercices<1 || Exercices>20) {
 
     
  }
-
  function ajouterApprenant(IdUser,FullName,City) {
      IdUser =Number(checkid())
      FullName= normaliserNom(  prompt(" Enter Your Name  : ")) 
@@ -88,7 +84,6 @@ while (Exercices<1 || Exercices>20) {
 
     
  }
- 
 function findById(id) {
       id = Number(prompt("Enter Id  : "))
     for (let i = 0; i < apprenants.length; i++) {
@@ -101,7 +96,6 @@ function findById(id) {
                 return [false,null]
 
 }
-
 function enregistrerResultat(id){
     let isvalid , indexid
      
@@ -110,7 +104,10 @@ function enregistrerResultat(id){
        
         let day, exercices
     [day, exercices] = validerResultat();
-    let challenge =Boolean( prompt(" do You do challenge true/false  : "))
+    let challenge = prompt("Do you do challenge? true/false: ");
+    challenge = challenge.toLowerCase() === "true";
+
+
     const result={
          jour: day, exercicesTermines: exercices,
           totalExercices: 20, challengeTermine: challenge
@@ -128,7 +125,8 @@ return indexid
      
 
 }
- 
+
  
 
+ 
  
