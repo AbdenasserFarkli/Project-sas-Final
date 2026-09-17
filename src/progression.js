@@ -1,6 +1,8 @@
 
+ const prompt = require("prompt-sync")();
 
 function normaliserNom(nomComplet) {
+    
     let isspace= false
     nomComplet = nomComplet.trim().replace(/[^a-zA-Z ]/g, "").toLowerCase().split("")
     for (let i = 0; i < nomComplet.length; i++) {
@@ -30,7 +32,6 @@ function normaliserNom(nomComplet) {
 
 
  function validerResultat(jour, Exercices){
- const prompt = require("prompt-sync")();
  
  jour=  Number(prompt("Enter Day you Want to add : "));
  while (jour<1 || jour>7) {
@@ -48,4 +49,23 @@ while (Exercices<1 || Exercices>20) {
 return true 
 
  }
+
+ function ajouterApprenant(IdUser,FullName,City) {
+     IdUser =Number(prompt(" Add Id  : "))
+     FullName= normaliserNom(  prompt(" Enter Your Name  : ")) 
+     City =  normaliserNom(  prompt(" Enter Name You City  : "))
+   const info =  {
+ id :IdUser,
+ nomComplet  : FullName ,
+ ville  : City,
+ resultats: []
+ }
+
+    
+    apprenants.push(info) 
+
+    
+ }
+ 
+ 
  
