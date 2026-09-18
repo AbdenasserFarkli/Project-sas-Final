@@ -216,6 +216,7 @@ function calculerProgression(indexid) {
 }
 
 function filtrerParNiveau(Choice) {
+
     console.log("1 Solide :");
     console.log("2 En progression :");
     console.log("3 À renforcer :");
@@ -276,4 +277,45 @@ return Solide
 
 
 }
-console.table(filtrerParNiveau());
+function tableBord() {
+    let Apprenants =[]
+        
+        for (let i = 0; i < apprenants.length; i++) {
+            let arr = calculerProgression(apprenants[i].id)
+            
+                Apprenants.push({
+                    id: apprenants[i].id,
+                    nom: apprenants[i].nomComplet,
+                    ville: apprenants[i].ville,
+                    "Exercice Terminés":arr[1],
+                    "Exercices Proposés":arr[2],
+                    "progress %": arr[3],
+                    "Challenges terminés":arr[4],
+                    "Journées renseignées":arr[5]
+
+                })
+
+            
+
+        }
+        return Apprenants
+
+    } 
+
+
+    console.table(tableBord());
+    
+
+export {
+    normaliserNom,
+    validerResultat,
+    checkid,
+    ajouterApprenant,
+    findIndexById,
+    misajourRusult,
+    enregistrerResultat,
+    FindByName,
+    serchebyId,
+    calculerProgression,
+    filtrerParNiveau
+};
