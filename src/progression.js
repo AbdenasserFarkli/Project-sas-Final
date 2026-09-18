@@ -380,4 +380,5 @@ export {
     calculerProgression,
     filtrerParNiveau,
     tableBord,
+    Afficherapprenants
 };
