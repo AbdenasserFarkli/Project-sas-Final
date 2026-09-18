@@ -279,9 +279,10 @@ return Solide
 
 
             }
-            return Àrenforcer
+            
 
         }
+        return Àrenforcer
 
 
 
@@ -374,6 +375,41 @@ function Afficherapprenants() {
 
       return Apprenants;
 }
+function trierParProgression() {
+    let sorting = [];
+
+    for (let i = 0; i < apprenants.length; i++) {
+        let arr = calculerProgression(apprenants[i].id);
+
+        sorting.push({
+            id: apprenants[i].id,
+            nom: apprenants[i].nomComplet,
+            ville: apprenants[i].ville,
+            progress: arr[3]
+        });
+    }
+
+    sorting.sort((a, b) => b.progress - a.progress);
+
+    return sorting;
+}
+function trierParalphabétique() {
+    let sorting = [];
+
+    for (let i = 0; i < apprenants.length; i++) {
+        let arr = calculerProgression(apprenants[i].id);
+
+        sorting.push({
+            id: apprenants[i].id,
+            nom: apprenants[i].nomComplet,
+            ville: apprenants[i].ville,
+            progress: arr[3]
+        });
+    }
+
+sorting.sort((a, b) => a.nom.localeCompare(b.nom));
+    return sorting;
+}
 
 
 export {
@@ -389,5 +425,8 @@ export {
     calculerProgression,
     filtrerParNiveau,
     tableBord,
-    Afficherapprenants
+    Afficherapprenants,
+    trierParProgression,
+    trierParalphabétique
+
 };

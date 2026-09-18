@@ -16,7 +16,9 @@ import {
     calculerProgression,
     filtrerParNiveau,
     tableBord,
-    Afficherapprenants
+    Afficherapprenants,
+    trierParProgression,
+    trierParalphabétique
 } from "./progression.js";
 function meneu() {
     console.log("--------------------------------------------------------------------");
@@ -45,10 +47,12 @@ switch (Choice) {
          console.table(Afficherapprenants());
          
         meneu()
+        break;
         case 3:
          ajouterApprenant()
          console.log("L'ajout a été effectué avec succès.");
         meneu()
+        break;
           case 4:
          console.table(serchebyId());
          
@@ -58,7 +62,6 @@ switch (Choice) {
            enregistrerResultat()
          console.log("Défi relevé avec succès");
          
-        
         meneu()
         break;
         case 6:
@@ -70,9 +73,21 @@ switch (Choice) {
           console.table(filtrerParNiveau());
         meneu()
         break;
-
-    default:
+        case 8:
+          console.table(trierParProgression());
+        meneu()
         break;
+        case 9:
+          console.table(trierParalphabétique());
+        meneu()
+        break ;
+        case 0:
+    console.clear();
+    console.log("Au revoir !");
+    return;
+          
+
+    
 }
     
 }
