@@ -278,10 +278,25 @@ return Solide
 
 }
 function tableBord() {
+    let ApprenantsClass=[]
+    let totalApprenant=apprenants.length
+    let progressApprenant=0, TotalExercices =0
     let Apprenants =[]
+   let Solide =0 ,  Enprogression=0,Arenforcer=0
         
         for (let i = 0; i < apprenants.length; i++) {
             let arr = calculerProgression(apprenants[i].id)
+            progressApprenant+=arr[3]
+            TotalExercices+=arr[4]
+            
+            if (arr[3]>=80) {
+                Solide++
+                
+            }else if (arr[3]>=50  && arr[3]<80) {
+                Enprogression++
+                
+            }else
+                Arenforcer++
             
                 Apprenants.push({
                     id: apprenants[i].id,
@@ -298,12 +313,28 @@ function tableBord() {
             
 
         }
-        return Apprenants
+        ApprenantsClass.push({
+            "total Apprenant" : totalApprenant,
+            "Progress"  :  (progressApprenant/Apprenants.length),
+            "solid": Solide,
+            "Enprogression" :Enprogression,
+            "A renforcer" : Arenforcer
+
+
+
+
+
+
+        })
+        console.table(ApprenantsClass);
+        
+
+        console.table(Apprenants);
+         
 
     } 
 
 
-    console.table(tableBord());
     
 
 export {
@@ -317,5 +348,7 @@ export {
     FindByName,
     serchebyId,
     calculerProgression,
-    filtrerParNiveau
+    filtrerParNiveau,
+    tableBord,
 };
+tableBord()
