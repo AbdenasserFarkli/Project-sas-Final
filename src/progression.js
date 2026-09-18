@@ -334,8 +334,38 @@ function tableBord() {
 
     } 
 
+function Afficherapprenants() {
+    let Apprenants = [];
 
-    
+    for (let i = 0; i < apprenants.length; i++) {
+            let jour=0,exercices=0,total=20,challenge=0
+
+
+        for (let j = 0; j < apprenants[i].resultats.length; j++) {
+                
+             jour=apprenants[i].resultats[j].jour
+                exercices+= apprenants[i].resultats[j].exercicesTermines
+               total= total*jour
+               if (apprenants[i].resultats[j].challengeTermine){
+                challenge++
+               }
+            
+        }
+        Apprenants.push({
+                "Id": apprenants[i].id,
+                "Nom Complet": apprenants[i].nomComplet,
+                "ville": apprenants[i].ville,
+                "Jour": jour,
+                "Exercices Termines": exercices,
+                "total Exercices": total,
+                "challenge Termine":challenge
+            });
+
+    }
+
+      return Apprenants;
+}
+
 
 export {
     normaliserNom,
@@ -351,4 +381,3 @@ export {
     filtrerParNiveau,
     tableBord,
 };
-tableBord()
