@@ -176,5 +176,45 @@ function FindByName(name) {
     }
     
  }
- console.log(serchebyId());
- 
+function calculerProgression(indexid) {
+    let totalexercices =20
+    let Exercicesterminés=0
+   let Exercicesproposés=0
+   let  Progression=0,CHallengesterminés=0,JournéesRenseignées=0
+    for (let i = 0; i < apprenants.length; i++) {
+        if (apprenants[i].id==indexid) {
+            Exercicesproposés=totalexercices*apprenants[i].resultats.length
+            for (let j = 0; j < apprenants[i].resultats.length; j++) {
+                JournéesRenseignées=apprenants[i].resultats.length
+                Exercicesterminés+=apprenants[i].resultats[j].exercicesTermines
+                if (apprenants[i].resultats[j].challengeTermine==true) {
+                    CHallengesterminés++
+                    
+                }
+                    Progression=(Exercicesterminés/Exercicesproposés)*100
+
+                
+            }
+                        return [
+                totalexercices,
+                Exercicesterminés,
+                Exercicesproposés,
+                Progression,
+                CHallengesterminés,
+                JournéesRenseignées
+            ];
+
+
+
+            
+        }
+        
+        
+    }
+    
+return [totalexercices,Exercicesterminés,Exercicesproposés,Exercicesproposés]
+    
+} 
+
+
+console.log(calculerProgression(1));
