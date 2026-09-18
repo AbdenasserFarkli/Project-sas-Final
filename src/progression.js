@@ -164,5 +164,17 @@ function FindByName(name) {
     }
     
 }
- 
+ function serchebyId(id) {
+    id = prompt("Enter Id ")
+    id= Number(id)
+    for (let i = 0; i < apprenants.length; i++) {
+        if (apprenants[i].id==id) {
+            return apprenants[i]
+            
+        }
+        
+    }
+    
+ }
+ console.log(serchebyId());
  
