@@ -96,7 +96,24 @@ function findById(id) {
                 return [false,null]
 
 }
-function enregistrerResultat(id){
+function misajourRusult(IndexId, result) {
+    for (let i = 0; i < apprenants.length; i++) {
+        if (apprenants[i].id==apprenants[IndexId].id) {
+            for (let j = 0; j < apprenants[i].resultats.length; j++) {
+                if (apprenants[i].resultats[j].jour==result.jour) {
+                    return j
+                }
+                
+            }
+            
+        }
+        
+    }
+        return -1
+
+    
+}
+function enregistrerResultat(){
     let isvalid , indexid
      
     [isvalid,indexid]=findById()
@@ -104,6 +121,8 @@ function enregistrerResultat(id){
        
         let day, exercices
     [day, exercices] = validerResultat();
+    
+    
     let challenge = prompt("Do you do challenge? true/false: ");
     challenge = challenge.toLowerCase() === "true";
 
@@ -113,8 +132,13 @@ function enregistrerResultat(id){
           totalExercices: 20, challengeTermine: challenge
 
     }
-    apprenants[indexid].resultats.push(result)
-    
+    let indexdy = misajourRusult(indexid,result)
+    if (indexdy!=-1) {
+        apprenants[indexid].resultats[indexdy]=result
+        
+    }else
+            apprenants[indexid].resultats.push(result)
+
 
 
         
@@ -127,6 +151,8 @@ return indexid
 }
 
  
+let index = enregistrerResultat()
+console.log(apprenants[index]);
 
  
  
