@@ -53,8 +53,7 @@ while (Exercices<1 || Exercices>20) {
  }
  function checkid(id) {
      id =Number(prompt(" Add Id  : "))
-     let count =0
-    let lengthArr= apprenants.length
+     
     for (let i = 0; i < apprenants.length; i++) {
         if (apprenants[i].id===id) {
             console.log("this Id is Used");
@@ -84,7 +83,7 @@ while (Exercices<1 || Exercices>20) {
 
     
  }
-function findById(id) {
+function findIndexById(id) {
       id = Number(prompt("Enter Id  : "))
     for (let i = 0; i < apprenants.length; i++) {
         if (apprenants[i].id==id) 
@@ -116,7 +115,7 @@ function misajourRusult(IndexId, result) {
 function enregistrerResultat(){
     let isvalid , indexid
      
-    [isvalid,indexid]=findById()
+    [isvalid,indexid]=findIndexById()
     if (isvalid) {
        
         let day, exercices
@@ -150,9 +149,20 @@ return indexid
 
 }
 
- 
-let index = enregistrerResultat()
-console.log(apprenants[index]);
+function FindByName(name) {
+    name = prompt("Enter name You want to find : ")
 
+    name=normaliserNom(name)
+    for (let i = 0; i < apprenants.length; i++) {
+        if (apprenants[i].nomComplet.includes(name)) {
+            return apprenants[i]
+            
+
+            
+        }
+        
+    }
+    
+}
  
  
