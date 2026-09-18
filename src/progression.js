@@ -165,15 +165,24 @@ function FindByName(name) {
 
 }
 function serchebyId(id) {
+    let arr =[]
     id = prompt("Enter Id ")
     id = Number(id)
     for (let i = 0; i < apprenants.length; i++) {
         if (apprenants[i].id == id) {
-            return apprenants[i]
+             arr.push({
+                "Id" : apprenants[i].id,
+                "Nom Complet" : apprenants[i].nomComplet,
+                "ville" : apprenants[i].ville
+
+             })
 
         }
 
+
     }
+    return arr
+
 
 }
 function calculerProgression(indexid) {

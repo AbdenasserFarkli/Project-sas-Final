@@ -1,3 +1,5 @@
+import { apprenants } from './data.js'
+
 import promptSync from "prompt-sync";
 
 const prompt = promptSync();
@@ -31,7 +33,8 @@ console.log("7. Filtrer les apprenants par niveau");
 console.log("8. Trier les apprenants par progression décroissante");
 console.log("9. Trier les apprenants par ordre alphabétique");
 console.log("0. Quitter");
-let Choice =Number(prompt("Enter Exercices you Want to add : "))
+   console.log("--------------------------------------------------------------------");
+let Choice =Number(prompt("votre choix "))
 switch (Choice) {
     case 1:
         tableBord()
@@ -47,13 +50,15 @@ switch (Choice) {
          console.log("L'ajout a été effectué avec succès.");
         meneu()
           case 4:
-         console.log(serchebyId());
+         console.table(serchebyId());
          
         meneu()
         break;
         case 5:
-         let index=  enregistrerResultat()
-         console.log(apprenants[index]);
+           enregistrerResultat()
+         console.log("Défi relevé avec succès");
+         
+        
         meneu()
         break;
         case 6:
@@ -62,7 +67,7 @@ switch (Choice) {
         meneu()
         break;
         case 7:
-          console.log(filtrerParNiveau());
+          console.table(filtrerParNiveau());
         meneu()
         break;
 
