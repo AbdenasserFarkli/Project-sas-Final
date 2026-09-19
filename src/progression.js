@@ -36,7 +36,7 @@ function validerResultat(jour, Exercices) {
 
     jour = Number(prompt("Enter Day you Want to add : "));
     while (jour < 1 || jour > 7) {
-        console.log("Day Invalid Try again day Includ  from 1 to 7")
+        console.log("Day Invalid Try again day between   1 and  7")
         jour = Number(prompt("Enter Day you Want to add : "));
 
     }
@@ -92,7 +92,7 @@ function findIndexById(id) {
 
 
     }
-    return [false, null]
+    return [false, -1]
 
 }
 function misajourRusult(IndexId, result) {
@@ -142,7 +142,7 @@ function enregistrerResultat() {
 
 
     } else
-        console.log(" Id Is not valider");
+        console.log(" Id Is not valid");
 
     return indexid
 
@@ -150,18 +150,31 @@ function enregistrerResultat() {
 }
 
 function FindByName(name) {
-    name = prompt("Enter name You want to find : ")
+    name = prompt("Enter name You want to find : ").toLowerCase()
 
-    name = normaliserNom(name)
+    let result = []
+    let objRuslt ={}
     for (let i = 0; i < apprenants.length; i++) {
-        if (apprenants[i].nomComplet.includes(name)) {
-            return apprenants[i]
+        if (apprenants[i].nomComplet.toLowerCase().includes(name)) {
+            objRuslt={
+                "Id" : apprenants[i].id,
+                "Nom Complet" : apprenants[i].nomComplet,
+                "Ville": apprenants[i].ville
+            }
+            result.push(objRuslt) 
 
 
 
         }
 
     }
+    return result
+        
+    
+
+    
+
+    
 
 }
 function serchebyId(id) {
@@ -410,6 +423,7 @@ function trierParalphabétique() {
 sorting.sort((a, b) => a.nom.localeCompare(b.nom));
     return sorting;
 }
+
 
 
 export {

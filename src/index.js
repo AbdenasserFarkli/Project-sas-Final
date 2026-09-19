@@ -1,4 +1,3 @@
-import { apprenants } from './data.js'
 
 import promptSync from "prompt-sync";
 
@@ -54,7 +53,15 @@ switch (Choice) {
         meneu()
         break;
           case 4:
-         console.table(serchebyId());
+            let arr = serchebyId()
+            
+            if (arr.length===0) {
+                     console.log("\x1b[31mID invalide.\x1b[0m")
+
+                
+            }else
+             console.table(serchebyId());
+
          
         meneu()
         break;
@@ -65,7 +72,15 @@ switch (Choice) {
         meneu()
         break;
         case 6:
-          console.log(FindByName());
+            let names = FindByName()
+
+          if (names.length==0) {
+            console.log("\x1b[31mNom invalide.\x1b[0m")
+             
+            
+          }else
+
+          console.table(names);
         
         meneu()
         break;
