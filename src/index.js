@@ -49,14 +49,14 @@ switch (Choice) {
         break;
         case 3:
          ajouterApprenant()
-        console.log(`
-\x1b[32m╔════════════════════════════════════════════╗
+         console.log(`
+╔════════════════════════════════════════════╗
 ║                                            ║
 ║       🎉  AJOUT RÉUSSI AVEC SUCCÈS !       ║
 ║                                            ║
 ║       L'opération a été effectuée.         ║
 ║                                            ║
-╚════════════════════════════════════════════╝\x1b[0m
+╚════════════════════════════════════════════╝
 `);
 
         meneu()
@@ -75,7 +75,12 @@ switch (Choice) {
         meneu()
         break;
         case 5:
-           enregistrerResultat()
+            let EnregistrerResultat=enregistrerResultat()
+            if (EnregistrerResultat==false) {
+          console.log("\x1b[31mId invalide.\x1b[0m")
+
+                
+            }else          
 console.log("\x1b[32mDéfi relevé avec succès ! Bravo ! 🎉\x1b[0m")
          
         meneu()

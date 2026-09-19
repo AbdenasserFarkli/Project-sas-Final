@@ -142,7 +142,7 @@ function enregistrerResultat() {
 
 
     } else
-        console.log(" Id Is not valid");
+        return false
 
     return indexid
 
