@@ -49,7 +49,16 @@ switch (Choice) {
         break;
         case 3:
          ajouterApprenant()
-         console.log("L'ajout a été effectué avec succès.");
+        console.log(`
+\x1b[32m╔════════════════════════════════════════════╗
+║                                            ║
+║       🎉  AJOUT RÉUSSI AVEC SUCCÈS !       ║
+║                                            ║
+║       L'opération a été effectuée.         ║
+║                                            ║
+╚════════════════════════════════════════════╝\x1b[0m
+`);
+
         meneu()
         break;
           case 4:
@@ -60,14 +69,14 @@ switch (Choice) {
 
                 
             }else
-             console.table(serchebyId());
+             console.table(arr);
 
          
         meneu()
         break;
         case 5:
            enregistrerResultat()
-         console.log("Défi relevé avec succès");
+console.log("\x1b[32mDéfi relevé avec succès ! Bravo ! 🎉\x1b[0m")
          
         meneu()
         break;
