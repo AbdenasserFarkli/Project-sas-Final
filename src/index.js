@@ -36,6 +36,12 @@ console.log("9. Trier les apprenants par ordre alphabétique");
 console.log("0. Quitter");
    console.log("--------------------------------------------------------------------");
 let Choice =Number(prompt("votre choix "))
+while (Choice<0 || Choice>9) {
+ console.log("\x1b[31mChois invalide.\x1b[0m")
+ Choice =Number(prompt("votre choix "))
+
+  
+}
 switch (Choice) {
     case 1:
         tableBord()
@@ -76,12 +82,14 @@ switch (Choice) {
         break;
         case 5:
             let EnregistrerResultat=enregistrerResultat()
-            if (EnregistrerResultat==false) {
-          console.log("\x1b[31mId invalide.\x1b[0m")
+            if (EnregistrerResultat!=-1) {
+              console.log("\x1b[32mDéfi relevé avec succès ! Bravo ! 🎉\x1b[0m")
+
+         
 
                 
-            }else          
-console.log("\x1b[32mDéfi relevé avec succès ! Bravo ! 🎉\x1b[0m")
+            }else       
+               console.log("\x1b[31mId invalide.\x1b[0m")   
          
         meneu()
         break;
@@ -99,7 +107,13 @@ console.log("\x1b[32mDéfi relevé avec succès ! Bravo ! 🎉\x1b[0m")
         meneu()
         break;
         case 7:
-          console.table(filtrerParNiveau());
+          let arrNevo=filtrerParNiveau()
+          if (arrNevo.length==0) {
+             console.log("\x1b[31mNiveau invalide.\x1b[0m")
+            
+          }else
+            
+          console.table(arrNevo);
         meneu()
         break;
         case 8:
@@ -112,7 +126,7 @@ console.log("\x1b[32mDéfi relevé avec succès ! Bravo ! 🎉\x1b[0m")
         break ;
         case 0:
     console.clear();
-    console.log("Au revoir !");
+    console.log("God bye !");
     return;
           
 

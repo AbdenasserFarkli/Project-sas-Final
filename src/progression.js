@@ -131,9 +131,9 @@ function enregistrerResultat() {
             totalExercices: 20, challengeTermine: challenge
 
         }
-        let indexdy = misajourRusult(indexid, result)
-        if (indexdy != -1) {
-            apprenants[indexid].resultats[indexdy] = result
+        let indexDAY = misajourRusult(indexid, result)
+        if (indexDAY != -1) {
+            apprenants[indexid].resultats[indexDAY] = result
 
         } else
             apprenants[indexid].resultats.push(result)
@@ -142,7 +142,7 @@ function enregistrerResultat() {
 
 
     } else
-        return false
+
 
     return indexid
 
@@ -282,16 +282,20 @@ return Solide
     } else
         for (let i = 0; i < apprenants.length; i++) {
             let arr = calculerProgression(apprenants[i].id)
-            if (arr[3] > 50 && arr[3] < 80) {
+            if (arr[3]<50) {
                  Àrenforcer.push({
                     id: apprenants[i].id,
                     nom: apprenants[i].nomComplet,
                     ville: apprenants[i].ville,
                     progress: arr[3]
                 })
-
-
+                
             }
+           
+                
+
+
+            
             
 
         }
@@ -361,14 +365,14 @@ function Afficherapprenants() {
     let Apprenants = [];
 
     for (let i = 0; i < apprenants.length; i++) {
-            let jour=0,exercices=0,total=20,challenge=0
+            let Jour=0,exercices=0,total=0,challenge=0
 
 
         for (let j = 0; j < apprenants[i].resultats.length; j++) {
                 
-             jour=apprenants[i].resultats[j].jour
+             Jour=apprenants[i].resultats[j].jour
                 exercices+= apprenants[i].resultats[j].exercicesTermines
-               total= total*jour
+               total= apprenants[i].resultats.length * 20;
                if (apprenants[i].resultats[j].challengeTermine){
                 challenge++
                }
@@ -378,7 +382,7 @@ function Afficherapprenants() {
                 "Id": apprenants[i].id,
                 "Nom Complet": apprenants[i].nomComplet,
                 "ville": apprenants[i].ville,
-                "Jour": jour,
+                "Jour": Jour,
                 "Exercices Termines": exercices,
                 "total Exercices": total,
                 "challenge Termine":challenge
