@@ -70,7 +70,18 @@ function checkid(id) {
 function ajouterApprenant(IdUser, FullName, City) {
     IdUser = Number(checkid())
     FullName = normaliserNom(prompt(" Enter Your Name  : "))
+    while (!isNaN(Number(FullName))) {
+         FullName = normaliserNom(prompt(" Enter Your Name  : "))
+
+
+        
+    }
     City = normaliserNom(prompt(" Enter Name You City  : "))
+    while (!isNaN(Number(City))) {
+    City = normaliserNom(prompt(" Enter Name You City  : "))
+
+        
+    }
     const info = {
         id: IdUser,
         nomComplet: FullName,
